@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	
+	// this is the practice section for the functions
+
+	<script type="text/javascript">
+		var todos = ['item 1', 'item 2', 'item, 3']	
+		
+		function displayTodos (){
+			console.log ('My todos:' , todos);
+		}
+
+		function addTodo() {
+			todos.push('new todo');
+		}
+
+		function changeTodo(position, newValue) {
+			todos[position] = newValue;
+			displayTodos();
+		}
+
+		function deleteTodo(){
+			todos.splice(position, 1);
+			displayTodos();
+		}
+
+	// this is the practice section for objects
+
+	var myComputer = {
+		operatingSystem: 'mac',
+		screenSize: '15 inches',
+		purchaseYear: '2011',
+	};
+
+	var tj = {
+		name: 'TJ',
+		sayName: function () {
+			console.log(this.name);
+		}
+	}
+	
+	// this is how to setup a function in combination with an object. Whenever the function is called,(tj.sayName), it will use the console.log command to print out the name data on the object
+
+	// a method is function set on a property within an object
+
+	// the next portion will be to take all the previous information and make them methods within an object to make the code cleaner and more efficient
+
+	var todoList = {
+	  todos: ['item 1', 'item2', 'item 3'],
+	  displayTodos: function() {
+	    console.log('My Todos', this.todos);
+	  },
+	  addTodo: function(todo) {
+	    this.todos.push(todo);
+	    this.displayTodos();
+	  },
+	  changeTodo: function(position,newValue){
+	    this.todos[position] = newValue;
+	    this.displayTodos();
+	  },
+	  deleteTodo: function(position){
+	    this.todos.splice(position,1);
+	    this.displayTodos();
+	  },
+	};
+
+	// made some changes. Changed the value in the newValue parameter to todoText. This way its known exactly what needed to be changed. Next thing is to reference the .todoText property as part of the function. Now to add a toggle method for the specific todos on the list
+
+	var todoList = {
+	  todos: [],
+	  
+	  displayTodos: function() {
+	    console.log('My Todos:');
+	  },
+	  
+	  addTodo: function(todoText) {
+	    this.todos.push({
+	      todoText: todoText,
+	      completed: false
+	    });
+	    this.displayTodos();
+	  },
+	  
+	  changeTodo: function(position, todoText) {
+	    this.todos[position].todoText = todoText;
+	    this.displayTodos();
+	  },
+	  
+	  deleteTodo: function(position) {
+	    this.todos.splice(position, 1);
+	    this.displayTodos();
+	  },
+	  
+	  toggleCompleted: function(position){
+	    var todo = this.todos[position];
+	    todo.completed = !todo.completed;
+	    this.displayTodos();
+  },
+	};
+
+	// this is practice for For Loops
+
+	for (var i = 0; i < 3; i++ ){
+		console.log("hey")
+	}
+
+	// in loops there are three parts. The initialization, the condition, and the final expression. Using this information along combined with what we know about the For loops. We will make a new expression.
+
+	
+
+	//now to use this for the previous project.
+
+	for (var i = 0; i < this.todos.length; i++){
+		console.log(this.todos[i].todoText);
+	}
+
+	//this is to display the added items with in the todos array. Next step is to make a function that would let you know whether or not the array is empty.
+
+	if (this.todos.length === 0){
+		console.log('Your todo list is empty');
+	} else {
+		console.log('My Todos:');
+		for (var i = 0; i < this.todos.length; i++){
+		console.log(this.todos[i].todoText);
+		}
+	}
+	//this code will be used to augment the display todo code
+	//old code
+	 displayTodos: function() {
+	    console.log('My Todos:');
+	  },
+
+	//new code
+	 displayTodos: function() {
+	    if (this.todos.length === 0){
+		console.log('Your todo list is empty');
+	} else {
+		console.log('My Todos:');
+		for (var i = 0; i < this.todos.length; i++){
+		console.log(this.todos[i].todoText);
+		}
+	}
+	  },
+	</script>
+
+
+</body>
+</html>
